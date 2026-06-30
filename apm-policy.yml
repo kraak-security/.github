@@ -7,9 +7,13 @@ cache:
 dependencies:
   allow:
     - "kraak-security/apm"
+    - "kraak-security/apm/**"
     - "obra/superpowers"
+    - "obra/superpowers/**"
     - "openai/skills"
+    - "openai/skills/**"
     - "anthropics/skills"
+    - "anthropics/skills/**"
   require_pinned_constraint: true
   max_depth: 50
 mcp:
