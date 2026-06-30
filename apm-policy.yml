@@ -1,16 +1,24 @@
-schema_version: 1
-allowed_sources:
-  - kraak-security/apm
-  - obra/superpowers
-  - openai/skills
-  - anthropics/skills
-conditional_sources:
-  github/awesome-copilot:
-    requires_admission_record: true
-require_pinned_refs: true
-deny_insecure_protocols: true
-transitive_mcp:
-  default: deny
-audit:
-  ci: block
-  install: warn
+name: "Kraak APM policy"
+version: "1.0.0"
+enforcement: warn
+fetch_failure: warn
+cache:
+  ttl: 3600
+dependencies:
+  allow:
+    - "kraak-security/apm"
+    - "obra/superpowers"
+    - "openai/skills"
+    - "anthropics/skills"
+  require_pinned_constraint: true
+  max_depth: 50
+mcp:
+  deny:
+    - "*"
+  self_defined: deny
+  trust_transitive: false
+manifest:
+  scripts: allow
+  require_explicit_includes: false
+unmanaged_files:
+  action: ignore
