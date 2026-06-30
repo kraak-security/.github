@@ -1,0 +1,16 @@
+schema_version: 1
+allowed_sources:
+  - kraak-security/apm
+  - obra/superpowers
+  - openai/skills
+  - anthropics/skills
+conditional_sources:
+  github/awesome-copilot:
+    requires_admission_record: true
+require_pinned_refs: true
+deny_insecure_protocols: true
+transitive_mcp:
+  default: deny
+audit:
+  ci: block
+  install: warn
